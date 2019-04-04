@@ -15,15 +15,29 @@ int your_conv( cv::Mat src,
     int kernel_height = kernel.rows;
     int kernel_width = kernel.cols;
 
-    int dst_height;
-    int dst_width;
+   // int dst_height;
+   //int dst_width;
 
     // src.ptr<unsigned char>(i)[ calculate INDEX ]
 
     // MAKE YOUR OWN CONVOLUTION PROCESS
 
+for(int a = 0; a< 3; a++){
+ for(int k = 0; k< src_height; k=k+stride){
+  for(int r = 0; r< src_width; r=r+stride){
+   for (int i = 0; i<kernel_height; i++){
+    for (int j = 0; j< kernel_width; j++){
+       
+      dst.at<cv::Vec3b>(k,r)[a]+=kernel.at<float>(i,j)*src.at<cv::Vec3b>(i,j)[a];
+
+       }
+        }
+         }
+          }
+           }
+
     // if success
-    return 0
+    return 0;
 
     // if fail - in the case of wrong parameters...
     // return -1
